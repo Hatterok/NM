@@ -35,8 +35,8 @@ LastnaVrednost = LastneVrednosti(A, w)
 
 # Vozlišče 1:(1,0,0)
 # Vozlišče 2:(0,1,0)
-b = [   1.0, 0.0, 0.0,
-        0.0, 1.0, 0.0
+b = [   1.0, 1.0, 1.0,
+        1.0, 1.0, 1.0
 ]
 
 # Začetni približek

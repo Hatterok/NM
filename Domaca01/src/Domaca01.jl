@@ -17,7 +17,7 @@ end
 """
   LastnaVrednost = LastneVrednosti(A, w)
   Matriko pretvorimo in izračunamo lastne vrednosti.
-  S tem preverimo konvergenco.
+  SOR iteracija bo konvergirala le takrat, ko so vse lastne vrednosti različne od 0.
 """
 
 function LastneVrednosti(A, w)
