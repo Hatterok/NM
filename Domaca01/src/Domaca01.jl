@@ -1,7 +1,9 @@
 module Domaca01
 
 # Uporaba knjižnic LinearAlgebra in Plots
-using LinearAlgebra, Plots
+using Revise, LinearAlgebra, Plots
+
+export RazpršenaMatrika, LastneVrednosti, sor, OdvisnostW
 
 """
   Podatkovna struktura, ki je sestavljena iz dveh matrik.

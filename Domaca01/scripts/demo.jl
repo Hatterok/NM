@@ -4,7 +4,7 @@ using Main.Domaca01
 using LinearAlgebra, Plots
 
 # Primer razpršene matrike
-A = [ -3.0 1.0 1.0 0.0 0.0 0.0;
+A = [ -2.0 1.0 1.0 0.0 0.0 0.0;
       1.0 -2.0 1.0 0.0 0.0 0.0;
       0.0 1.0 -2.0 1.0 0.0 0.0;
       0.0 1.0 0.0 -2.0 1.0 0.0;
@@ -14,10 +14,10 @@ A = [ -3.0 1.0 1.0 0.0 0.0 0.0;
 
 # Zapis v strukturi RazpršenaMatrika
 B = RazpršenaMatrika(
-    [   -3.0 1.0 1.0;
+    [   -2.0 1.0 1.0;
         1.0 -2.0 1.0;
         1.0 -2.0 1.0;
-        1.0 -2.0 1.0;
+        1.0 -3.0 1.0;
         1.0 -2.0 1.0;
         1.0 1.0 -2.0;
     ],
@@ -31,12 +31,10 @@ B = RazpršenaMatrika(
     ]
 )
 
-LastnaVrednost = LastneVrednosti(A, w)
-
 # Vozlišče 1:(1,0,0)
 # Vozlišče 2:(0,1,0)
-b = [   1.0, 1.0, 1.0,
-        1.0, 1.0, 1.0
+b = [   1.0, 0.0, 0.0,
+        0.0, 1.0, 0.0
 ]
 
 # Začetni približek
@@ -47,6 +45,9 @@ tol = 1e-10
 
 #  relaksacijski parameter
 w = 1.3
+
+# Preverba konvergence
+LastnaVrednost = LastneVrednosti(A, w)
 
 # SOR iteracija
 xn, korak = sor(B,b,x0,w,tol)
