@@ -7,7 +7,7 @@ using LinearAlgebra, Plots
 A = [ -2.0 1.0 1.0 0.0 0.0 0.0;
       1.0 -2.0 1.0 0.0 0.0 0.0;
       0.0 1.0 -2.0 1.0 0.0 0.0;
-      0.0 1.0 0.0 -2.0 1.0 0.0;
+      0.0 1.0 0.0 -3.0 1.0 0.0;
       0.0 0.0 0.0 1.0 -2.0 1.0;
       0.0 0.0 0.0 1.0 1.0 -2.0;
 ]
@@ -53,7 +53,7 @@ LastnaVrednost = LastneVrednosti(A, w)
 xn, korak = sor(B,b,x0,w,tol)
 
 # Odvisnost konvergence od relaksacijskega parametra
-OdvisnostW(B, b, x0, w, tol)
+OdvisnostW(B, b, x0, tol)
 
 # Preverba rezultata
 Base.product(B,xn)-b

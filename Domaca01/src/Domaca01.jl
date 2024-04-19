@@ -105,18 +105,18 @@ function sor(A::RazpršenaMatrika, b::Vector{Float64}, x1::Vector{Float64}, w, t
 end
 
 """
-  OdvisnostW(A::RazpršenaMatrika, b::Vector{Float64}, x1::Vector{Float64}, w, tol)
+  OdvisnostW(A::RazpršenaMatrika, b::Vector{Float64}, x1::Vector{Float64}, tol)
   Funkcija izriše graf odvisnosti konvergence od relaksacijskega parametra.
 """
 
-function OdvisnostW(A::RazpršenaMatrika, b::Vector{Float64}, x1::Vector{Float64}, w, tol)
+function OdvisnostW(A::RazpršenaMatrika, b::Vector{Float64}, x1::Vector{Float64}, tol)
   W = LinRange(0.1, 1.5, 100)
   K = similar(W)
   S = size(W)
   t = S[1]
 
   for i in 1:t
-    y, korak = sor(B,b,x0,W[i],tol)
+    y, korak = sor(A,b,x1,W[i],tol)
     K[i] = korak
   end
 
