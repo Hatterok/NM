@@ -1,7 +1,7 @@
 module Domaca01
 
 # Uporaba knjižnic LinearAlgebra in Plots
-using Revise, LinearAlgebra, Plots
+using LinearAlgebra, Plots
 
 export RazpršenaMatrika, LastneVrednosti, sor, OdvisnostW
 
@@ -23,11 +23,11 @@ end
 """
 
 function LastneVrednosti(A, w)
-  L=-tril(A,-1)
-  U=-triu(A,1)
-  D=diagm(diag(A))
-  R=(D-w*L)\((1-w)*D+w*U)
-  f=eigen(R)
+  L = -tril(A, -1)
+  U = -triu(A, 1)
+  D = diagm(diag(A))
+  R = (D - w * L) \ ((1 - w) * D + w * U)
+  f = eigen(R)
   f.values
   LastnaVrednost = abs.(f.values)
   return LastnaVrednost
@@ -62,8 +62,8 @@ function Base.product(A::RazpršenaMatrika, b::Vector{Float64})
   x = zeros(lii)
   for i in fii:lii
     for j in fij:lij
-      if A.I[i,j] != 0
-        x[i] += A.V[i,j] * b[A.I[i,j]]
+      if A.I[i, j] != 0
+        x[i] += A.V[i, j] * b[A.I[i, j]]
       end
     end
   end
@@ -76,28 +76,28 @@ end
 """
 
 function sor(A::RazpršenaMatrika, b::Vector{Float64}, x1::Vector{Float64}, w, tol)
-  xn=copy(x1)
-  x1=copy(x1)
-  x1=Inf*xn
+  xn = copy(x1)
+  x1 = copy(x1)
+  x1 = Inf * xn
   fii, fij = Base.firstindex(A::RazpršenaMatrika)
   lii, lij = Base.lastindex(A::RazpršenaMatrika)
   diagonalniElement = 1
   korak = 0
-  while ((norm(xn-x1, Inf) > tol) && (korak < 10000))
+  while ((norm(xn - x1, Inf) > tol) && (korak < 10000))
     # println(korak) # Če želimo izpis števila korakov, to odkomentiramo.
-    copyto!(x1,xn)
+    copyto!(x1, xn)
     for i in fii:lii
       vsota = 0
       for j in fij:lij
-        if A.I[i,j] != 0
-          if A.I[i,j] == i
-            diagonalniElement = A.V[i,j]
+        if A.I[i, j] != 0
+          if A.I[i, j] == i
+            diagonalniElement = A.V[i, j]
           else
-            vsota += A.V[i,j]*xn[A.I[i,j]]
+            vsota += A.V[i, j] * xn[A.I[i, j]]
           end
         end
       end
-      xn[i]=(1-w)*xn[i] + (w/diagonalniElement)*(b[i]-vsota)
+      xn[i] = (1 - w) * xn[i] + (w / diagonalniElement) * (b[i] - vsota)
     end
     korak += 1
   end
@@ -116,7 +116,7 @@ function OdvisnostW(A::RazpršenaMatrika, b::Vector{Float64}, x1::Vector{Float64
   t = S[1]
 
   for i in 1:t
-    y, korak = sor(A,b,x1,W[i],tol)
+    y, korak = sor(A, b, x1, W[i], tol)
     K[i] = korak
   end
 
