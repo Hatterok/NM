@@ -120,12 +120,14 @@ end
 function Domaca02_2(integrand, a, b, natancnost)
     # Začetno število podintervalov
     n = 1
-    priblizek = gauss_legendre_2_point(integrand, a, b, n)
+    i = 1
+    priblizek = gausslegendre2point(integrand, a, b, n)
 
-    # Povečujemo število podintervalov dokler ne dosežemo želene natančnosti
+    # Povečujemo število podintervalov dokler ne dosežemo željene natančnosti
     while true
         n *= 2
-        nov_priblizek = gauss_legendre_2_point(integrand, a, b, n)
+        i = i + 1
+        nov_priblizek = gausslegendre2point(integrand, a, b, n)
         if abs(nov_priblizek - priblizek) < natancnost
             priblizek = nov_priblizek
             break
@@ -133,7 +135,7 @@ function Domaca02_2(integrand, a, b, natancnost)
         priblizek = nov_priblizek
     end
 
-    return priblizek, n
+    return priblizek, i
 end
 
 export simpsonovoadaptivno, gausslegendre2point, Domaca02_1, Domaca02_2

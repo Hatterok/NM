@@ -14,7 +14,7 @@ epsilon = 1e-7
 S, Nev, err = Domaca02_1(f, a, b, epsilon)
 
 println("Approksimacija: ", S)
-println("Stevio korakov: ", Nev)
+println("Stevilo korakov: ", Nev)
 println("Napaka: ", err)
 
 #--------------------------------------------------------------------------------------------#
@@ -34,4 +34,4 @@ zeljena_natancnost = 1e-10
 priblizek, koraki = Domaca02_2(integrand, a, b, zeljena_natancnost)
 
 println("Priblizek: ", priblizek)
-println("Stevio korakov: ", koraki)
+println("Stevilo korakov: ", koraki)
