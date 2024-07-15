@@ -42,12 +42,17 @@
 • navodila kako uporabiti kodo:
 
     Za uporabo so potrebne knjižnice LinearAlgebra, Plots in Test.
-    V Domaca01.jl poženite modul Domaca01 z ukazom shift+enter. Z istim ukazom poženite vse vrstice v demo.jl.
-    Enako storite v runtests.jl. Sledite komentarjem.
+
+    Ko poženete julio, najprej vnesete ukaz using Revise [1]
+    v paketnem načinu napišete (v.01) pkg>activate Domaca01
+
+    Kodo iz Domace01\scripts\demo.jl poženete z Shift-Enter v VS Code ali z ukazom julia> include("Domace01\scripts\demo.jl").
+    Kode iz Domace01\src NE nalagate s Shift-Enter. Revise bi moral poskrbeti, da se bo avtomatsko naložila ob vsaki spremembi.
 
 • navodila, kako pognati teste:
 
     Glejte prejšnjo točko.
+    Teste poženete v paketnem načinu z ukazom (Domaca01) pkg> test.
 
 • navodila, kako ustvariti poročilo:
 
