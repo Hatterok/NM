@@ -4,12 +4,12 @@ using Main.Domaca01
 using LinearAlgebra, Plots
 
 # Primer razpršene matrike
-A = [ -2.0 1.0 1.0 0.0 0.0 0.0;
-      1.0 -2.0 1.0 0.0 0.0 0.0;
-      0.0 1.0 -2.0 1.0 0.0 0.0;
-      0.0 1.0 0.0 -3.0 1.0 0.0;
-      0.0 0.0 0.0 1.0 -2.0 1.0;
-      0.0 0.0 0.0 1.0 1.0 -2.0;
+A = [-2.0 1.0 1.0 0.0 0.0 0.0;
+    1.0 -2.0 1.0 0.0 0.0 0.0;
+    0.0 1.0 -2.0 1.0 0.0 0.0;
+    0.0 1.0 0.0 -3.0 1.0 0.0;
+    0.0 0.0 0.0 1.0 -2.0 1.0;
+    0.0 0.0 0.0 1.0 1.0 -2.0
 ]
 
 # Zapis v strukturi RazpršenaMatrika
@@ -50,11 +50,11 @@ w = 1.3
 LastnaVrednost = LastneVrednosti(A, w)
 
 # SOR iteracija
-xn, korak = sor(B,b,x0,w,tol)
+xn, korak = sor(B, b, x0, w, tol)
 
 # Odvisnost konvergence od relaksacijskega parametra
 OdvisnostW(B, b, x0, tol)
 
 # Preverba rezultata
-Base.product(B,xn)-b
-A*xn-b
+Base.product(B, xn) - b
+A * xn - b
