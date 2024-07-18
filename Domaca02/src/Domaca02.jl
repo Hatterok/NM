@@ -1,7 +1,7 @@
 module Domaca02
 
 """
-    adaptivno Simpsonovo pravilo 
+    simpsonovoAdaptivno
     Racunanje vrednosti dolocenega integrala
     Podatki:
             f           zvezna funkcija
@@ -14,7 +14,7 @@ Rezultat:
             err               ocena napake priblizka
 """
 
-function simpsonovoadaptivno(f, a, b, epsilon)
+function simpsonovoAdaptivno(f, a, b, epsilon)
     fa = f(a)
     fb = f(b)
     h = (b - a)
@@ -34,8 +34,8 @@ function simpsonovoadaptivno(f, a, b, epsilon)
         Nev = 5
         return S, Nev, err
     else
-        S11, Nev1, err1 = simpsonovoadaptivno(f, a, c, epsilon / 2)
-        S21, Nev2, err2 = simpsonovoadaptivno(f, c, b, epsilon / 2)
+        S11, Nev1, err1 = simpsonovoAdaptivno(f, a, c, epsilon / 2)
+        S21, Nev2, err2 = simpsonovoAdaptivno(f, c, b, epsilon / 2)
         S = S11 + S21
         Nev = Nev1 + Nev2
         err = err1 + err2
@@ -64,8 +64,8 @@ function Domaca02_1(f, a, b, epsilon)
         S = S2 + (S2 - S1) / 15
         Nev = 5
     else
-        S11, Nev1, err1 = simpsonovoadaptivno(f, a, c, epsilon / 2)
-        S21, Nev2, err2 = simpsonovoadaptivno(f, c, b, epsilon / 2)
+        S11, Nev1, err1 = simpsonovoAdaptivno(f, a, c, epsilon / 2)
+        S21, Nev2, err2 = simpsonovoAdaptivno(f, c, b, epsilon / 2)
         S = S11 + S21
         Nev = Nev1 + Nev2
         err = err1 + err2
@@ -91,25 +91,20 @@ Rezultat:
             n             stevilo korakov
 """
 
-function gausslegendre2point(f, a, b, n)
-    # Koreni in uteži za Gauss-Legendreovo pravilo z dvema točkama
+function gaussLegendre(f, a, b, n)
     x1, x2 = -1 / sqrt(3), 1 / sqrt(3)
     w1, w2 = 1, 1
 
-    # Dolžina podintervala
     h = (b - a) / n
 
     integral = 0.0
     for i in 0:(n-1)
-        # Meje trenutnega podintervala
         a_i = a + i * h
         b_i = a + (i + 1) * h
 
-        # Transformacija korenov za trenutni podinterval
         t1 = 0.5 * (a_i + b_i + h * x1)
         t2 = 0.5 * (a_i + b_i + h * x2)
 
-        # Preračun uteži
         integral += 0.5 * h * (w1 * f(t1) + w2 * f(t2))
     end
 
@@ -118,16 +113,14 @@ end
 
 
 function Domaca02_2(integrand, a, b, natancnost)
-    # Začetno število podintervalov
     n = 1
     i = 1
-    priblizek = gausslegendre2point(integrand, a, b, n)
+    priblizek = gaussLegendre(integrand, a, b, n)
 
-    # Povečujemo število podintervalov dokler ne dosežemo željene natančnosti
     while true
         n *= 2
         i = i + 1
-        nov_priblizek = gausslegendre2point(integrand, a, b, n)
+        nov_priblizek = gaussLegendre(integrand, a, b, n)
         if abs(nov_priblizek - priblizek) < natancnost
             priblizek = nov_priblizek
             break
@@ -138,6 +131,6 @@ function Domaca02_2(integrand, a, b, natancnost)
     return priblizek, i
 end
 
-export simpsonovoadaptivno, gausslegendre2point, Domaca02_1, Domaca02_2
+export simpsonovoAdaptivno, gaussLegendre, Domaca02_1, Domaca02_2
 
 end

@@ -28,10 +28,10 @@ end
 
 # Vhodni parametri
 a, b = 0.0, 5.0
-zeljena_natancnost = 1e-10
+zeljenaNatancnost = 1e-10
 
 # Klic funkcije
-priblizek, koraki = Domaca02_2(integrand, a, b, zeljena_natancnost)
+priblizek, koraki = Domaca02_2(integrand, a, b, zeljenaNatancnost)
 
 println("Priblizek: ", priblizek)
 println("Stevilo korakov: ", koraki)
