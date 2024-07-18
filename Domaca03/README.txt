@@ -29,19 +29,19 @@
 
 • navodila kako uporabiti kodo:
 
-    Za uporabo so potrebne knjižnici Plots in Test.
+    	Za uporabo so potrebne knjižnici Plots in Test.
 
-    Ko poženete julio, najprej vnesete ukaz using Revise [1]
-    v paketnem načinu napišete (v.01) pkg>activate Domaca03
+    	Ko poženete julio, najprej vnesete ukaz using Revise [1]
+    	v paketnem načinu napišete (v.01) pkg>activate Domaca03
 
-    Kodo iz Domaca03\scripts\demo.jl poženete z Shift-Enter v VS Code ali z ukazom julia> include("Domaca03\scripts\demo.jl").
-    Kode iz Domaca03\src NE nalagate s Shift-Enter. Revise bi moral poskrbeti, da se bo avtomatsko naložila ob vsaki spremembi.
+    	Kodo iz Domaca03\scripts\demo.jl poženete z Shift-Enter v VS Code ali z ukazom julia> include("Domaca03\scripts\demo.jl").
+    	Kode iz Domaca03\src NE nalagate s Shift-Enter. Revise bi moral poskrbeti, da se bo avtomatsko naložila ob vsaki spremembi.
 
 • navodila, kako pognati teste:
 
-    Glejte prejšnjo točko.
-    Teste poženete v paketnem načinu z ukazom (Domaca03) pkg> test.
+    	Glejte prejšnjo točko.
+    	Teste poženete v paketnem načinu z ukazom (Domaca03) pkg> test.
 
 • navodila, kako ustvariti poročilo:
 
-    Poročilo je že ustvarjeno v PDF obliki. :)
+    	Poročilo je že ustvarjeno v PDF obliki. :)
